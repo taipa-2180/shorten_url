@@ -1,5 +1,5 @@
 class Url < ApplicationRecord
-  validates :original_url, :code, presence: true
+  validates :original_url, presence: true
   validates :code, uniqueness: true
 
   before_create :generate_code
