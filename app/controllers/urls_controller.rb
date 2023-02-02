@@ -1,7 +1,17 @@
 class UrlsController < ApplicationController
-  def create
+  def encode
+    @url = Url.create(original_url: params[:url])
+    render json: { code: @url.code }
+  end
+  
+  def decode
+    @url = Url.find_by(code: code)
+    render json: { original_url: @url.original_url }
   end
 
-  def get_url
+  private
+
+  def code
+    @code ||= URI(params[:shorten_url]).path[1..-1]
   end
 end
