@@ -1,0 +1,33 @@
+default: &default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("DATABASE_USERNAME") { "root" } %>
+  password: "12345678"#<%= ENV["DATABASE_PASSWORD"] %>
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+  host: <%= ENV.fetch("DATABASE_HOSTNAME") { "127.0.0.1" } %>
+  socket: /var/run/mysqld/mysqld.sock
+  # redis: &redis
+  #   host: <%= ENV.fetch("APP_REDIS_HOST") { "localhost" } %>
+  #   port: <%= ENV.fetch("APP_REDIS_PORT") { "6379" } %>
+  #   db: 0
+
+development:
+  <<: *default
+  database: shorten_url_development
+  # redis:
+  #   <<: *redis
+
+test:
+  <<: *default
+  database: shorten_url_test
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  # redis:
+  #   <<: *redis
+
+production:
+  <<: *default
+  database: shorten_url_production
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  # redis:
+  #   <<: *redis
