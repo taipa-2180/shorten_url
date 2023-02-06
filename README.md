@@ -1,13 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 Ruby version 2.7.3
 
-Create database.yml and application.yml like example
+Create database.yml and application.yml following config/application.yml.example and config/database.yml.example
 
 Run below commands:
 `bundle install`
@@ -18,7 +13,7 @@ Run below commands:
 
 
 
-About risks/scale up and solotions
+About risks/scale up and solutions
 
 I. You need to think through potential attack vectors on the application
 
@@ -26,7 +21,7 @@ I. You need to think through potential attack vectors on the application
 
     Application can be attacked by sending large number of requests
 
-    => Solotion: Detect spammer's IP and limit number of requests of them from server
+    => Solution: Detect spammer's IP and limit number of requests of them from server
 
        Simpler, adding captcha input at client side also prevent spamming
   
