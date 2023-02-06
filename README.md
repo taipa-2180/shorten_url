@@ -24,7 +24,7 @@ I. You need to think through potential attack vectors on the application
 
   1. Spamming 
 
-    -Application can be attacked by sending large number of requests
+    Application can be attacked by sending large number of requests
 
     => Solotion: Detect spammer's IP and limit number of requests of them from server
 
